@@ -1,0 +1,89 @@
+Databases: Introduction
+
+1. What data types do each of these values represent?
+    1. "A Clockwork Orange": string
+    2. 42: integar
+    3. 09/02/1945: date
+    4. 98.7: float
+    5. $15.99: numeric value
+
+2. Explain when a database would be used. Explain when a text file would be used.
+
+    1. We would use a database if we have data that is more complex, sensitive, or private information, as a database is best for keeping information secured. It is also best to use a database when want information to be retrieved easily and for data that is going to have high traffic by user.
+    2. We would use a text file if we have a small amount of information that we want to store quickly, such as a simple list. It would also be best to use a text file if we want the information made available to other people and to other software.
+
+3. Describe one difference between SQL and other programming languages.
+
+    Answer: One of the biggest difference between SQL and other programming languages is that SQL is declarative. Meaning, that instead of telling it what to do to get the results you want, you instead tell it what you want, and figurea out what to do, and then come back with the results.
+
+4. In your own words, explain how the pieces of a database system fit together at a high level.
+
+    Answer: In a database related data is grouped into tables. These tables consist of rows and columns, similar to that of a spreadsheet. The data stays consistent from one record to the next by assigning the appropriate data type to each column. It is indexed to make it easier to find relevant information.
+
+5. Explain the meaning of�table,�row,�column, and�value.
+
+    Answer:
+      1. Table: The database table is where all the data in a database is store. It is made of columns and rows.
+      2. Row: Rows populate data into the table. A table can contain zero or more rows.
+      3. Column: A column is a set of date�values, all of a single specific data type, in a table. A columns define the data in a table.
+      4. Value: The data that the database table holds it its rows and columns.
+
+6. List three data types that can be used in a table.
+
+    Answer:
+      1. TIMESTAMP
+      2. TEXT
+      3. INT
+
+7. Given this-payments-table, provide an English description of the following queries and include their results:
+
+    SELECT date, amount
+    FROM payments;
+
+    English Description: I'm looking for the date and amount of all the payments.
+
+
+    SELECT amount
+    FROM payments
+    WHERE amount > 500;
+
+    English Description: I'm looking for the amount of all payments that are greater than 500.
+
+
+    SELECT *
+    FROM payments
+    WHERE payee = 'Mega Foods';
+
+    English Description: I�m looking for all data related to the payments made by �Mega Foods�
+
+8. Given this�users�table, write SQL queries using the following criteria and include the output:
+
+    * The email and sign-up date for the user named DeAndre Data.
+
+        SELECT email, sign-up date
+   		  FROM users
+        WHERE userid = 2;
+
+			  Output:
+          * email: datad@comcast.net,
+          *  sign-up date: 2008-01-20
+
+* The user ID for the user with email 'aleesia.algorithm@uw.edu'.
+
+        SELECT userid
+        FROM users
+        WHERE email = 'aleesia.algorithm@uw.edu';
+
+			  Output:
+          * userid = 1
+
+* All the columns for the user ID equal to 4.
+
+        SELECT *
+        FROM users
+        WHERE userid = 4;
+
+        Output:
+          * name: Brandy Boolean
+          * email:  bboolean@nasa.gov
+          * signup date: 1999-10-15
