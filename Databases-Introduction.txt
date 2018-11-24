@@ -19,7 +19,8 @@ Databases: Introduction
 
 4.	In your own words, explain how the pieces of a database system fit together at a high level.
 
-      Answer: In a database related data is grouped into tables. These tables consist of rows and columns, similar to that of a spreadsheet. The data stays consistent from one record to the next by assigning the appropriate data type to each column. It is indexed to make it easier to find relevant information.
+      Answer: A database is set up as an application on a server. It is set up this way so that other machines can send requests through the server to retrieve data. Inside the database the information is stored in a binary format. Also, inside of the files there are structures that allow the database system to be able to read and change stored date quickly.
+
 
 5.	Explain the meaning of table, row, column, and value.
 
