@@ -11,7 +11,7 @@ Fundamental SQL Commands
 2.	Explain the structure for each type of command.
       •	INSERT INTO:
           •	We can insert date into the table: INSERT INTO <table name>
-          •	 We can choose a specific row : INSERT INTO <row name> VALUE <what you want added to the row>
+          •	We can choose a specific row : INSERT INTO <row name> VALUE <what you want added to the row>
           •	We can choose a specific Column: INSERT INTO < column name> VALUE<what you want added to the column>
       •	UPDATE:
           •	UPDATE <table you want updated> SET <value to add> WHERE <where you want it updated>
