@@ -53,25 +53,25 @@ Fundamental SQL Commands
 
         CREATE TABLE library(
           ISBN integer,
-          Title text,
-          Author text,
-          Genre text,
-          Publishing date date,
-          Number of copies integer,
-          Available copies integer
+          title text,
+          author text,
+          genre text,
+          publishing_date date,
+          number_of_copies integer,
+          available_copies integer
         );
 
         •	Find three books and add their information to the table.
             Answer:
 
-            INSERT INTO library (ISBN, title, author, genre, publishing date, number of copies, available copies)
+            INSERT INTO library (ISBN, title, author, genre, publishing_date, number_of_copies, available_copies)
               VALUES
                 (9780385738781, ‘The Death Cure’, ‘James Dashner’, ‘science fiction’, ‘October 11, 2011’, 15, 13),
                 (9781847242532, ‘The Girl with the Dragon Tattoo, Steg Larson’, ‘crime, mystery, thriller’, August 2005, 10, 9),
                 (0312010737, ‘Not Without My Daughter’, ‘Betty Mahmoody, William Hoffer’, ‘Biogrpahy, 1987, 3, 3);
 
         •	Someone has just checked out one of the books. Change the number of available copies to 1 fewer.
-            Answer: UPDATE library SET ‘available copies=2 WHERE title= ‘Not Without My Daughter’;
+            Answer: UPDATE library SET ‘available_copies=2 WHERE title= ‘Not Without My Daughter’;
 
         •	Now one of the books has been added to the banned books list. Remove it from the table.
             Answer:	DELETE FROM library WHERE ISBN=9781847242532;
@@ -81,18 +81,18 @@ Fundamental SQL Commands
       CREATE TABLE spacecrafts(
 	       id integer,
 	       name text,
-	       year launched integer,
-         country of origin text,
-         description of mission text,
-         orbiting body text,
-         currently operating Boolean,
-         approximate miles from earth integer
+	       year_launched integer,
+         country_of_origin text,
+         description_of_mission text,
+         orbiting_body text,
+         currently_operating boolean,
+         approximate_miles_from_earth integer
 	    );
 
 	  Add three non-Earth-orbiting satellites to the table.
       Answer:
 
-	     INSERT INTO spacecrafts(id, name, year launched, country of origin, description of mission, orbiting body, currently operating, approximate miles from earth)
+	     INSERT INTO spacecrafts(id, name, year_launched, country_of_origin, description_of_mission mission, orbiting_body, currently_operating, approximate_miles_from_earth)
 	      VALUES
           (1, ‘2001 Mars Odyssey’, 2001, ‘United States’, ‘Its mission is to detect evidence of past or present water and ice, as well as study the planet's geology and radiation environment’,’Mars’, y, 2,883,050),
           (2, ‘Mars Express’, 2003, ‘Khazakstan’, ‘To study of the interior, subsurface, surface and atmosphere, and environment of the planet Mars’, ‘Mars’, y, 2854840),
@@ -102,23 +102,23 @@ Fundamental SQL Commands
       Answer: DELETE FROM spacecrafts WHERE id=1;
 
     •	Edit another satellite because it is no longer operating and change the value to reflect that.
-      Answer: UPDATE spacecrafts SET currently operating=’n’ WHERE id=2;
+      Answer: UPDATE spacecrafts SET currently_operating=’n’ WHERE id=2;
 
 7.	Write a command to create a new table to hold the emails in your inbox. This table should include an id, the subject line, the sender, any additional recipients, the body of the email, the timestamp, whether or not you have read the email, and the id of the email chain it's in. Also provide commands that perform the following operations:
-        CREATE TABLE inbox(
+       CREATE TABLE inbox(
           id integer,
-          subject line text
+          subject_line text
           sender text
-          additional recipients text
-          email body text
+          additional_recipients text
+          email_body text
           timestamp time
-          read or unread Boolean
-          id of email chain its in integer
+          read_or_unread Boolean
+          id_of_email_chain integer
         );
 
         •	Add three new emails to the inbox.
 	       Answer:
-          INSERT INTO inbox(id, subject line, sender, additional recipients, email body, timestamp, read or unread, id of email chain)
+          INSERT INTO inbox(id, subject line, sender, additional_recipients, email_body, timestamp, read_or_unread, id_of_email_chain)
             VALUES
               (111, ‘Good Morning’, ‘Lindsay K’, ‘none’, ‘Hello, Write me back some time’, time, ‘y’, 12222),
               (112, ‘Good Afternoon’, ‘Luna K’, ‘none’, ‘Hope your day is going well, let me know about this weekend.’, ‘time’, ‘y’, 12223),
@@ -127,4 +127,4 @@ Fundamental SQL Commands
         •	You deleted one of the emails, so write a command to remove the row from the inbox table.
             Answer: DELETE FROM inbox WHERE id=111;
         •	You started reading an email but just heard a crash in another room. Mark the email as unread before investigating the crash, so you can come back and read it later.
-            Answer: UPDATE inbox SET read or unread=’n’ WHERE id=113;
+            Answer: UPDATE inbox SET read_or_unread=’n’ WHERE id=113;
