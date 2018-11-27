@@ -14,7 +14,7 @@ Fundamental SQL Commands
           •	We can choose a specific row : INSERT INTO <row name> VALUE <what you want added to the row>
           •	We can choose a specific Column: INSERT INTO < column name> VALUE<what you want added to the column>
       •	UPDATE:
-          •	UPDATE <table you want updated> SET <value to add> WHERE <where you want it updated>
+          •	UPDATE <table you want updated> SET <field=parameter> WHERE <where you want it updated>
       •	DELETE FROM:
           •	DELETE FROM <name of table> WHERE <to specify what value you want deleted>
 
@@ -71,7 +71,7 @@ Fundamental SQL Commands
                 (0312010737, ‘Not Without My Daughter’, ‘Betty Mahmoody, William Hoffer’, ‘Biogrpahy, 1987, 3, 3);
 
         •	Someone has just checked out one of the books. Change the number of available copies to 1 fewer.
-            Answer: UPDATE library SET ‘available_copies=2 WHERE title= ‘Not Without My Daughter’;
+            Answer: UPDATE library SET available_copies=2 WHERE title= ‘Not Without My Daughter’;
 
         •	Now one of the books has been added to the banned books list. Remove it from the table.
             Answer:	DELETE FROM library WHERE ISBN=9781847242532;
