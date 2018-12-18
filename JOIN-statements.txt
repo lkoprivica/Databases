@@ -56,56 +56,59 @@ Exercises
 
 	     SELECT volunteers.*, dogs.*
        FROM volunteers
-       JOIN dogs
+       LEFT JOIN dogs
        ON volunteers.foster_dog_id = dogs.id;
-       WHERE volunteers.fosters_dog_id NOT null;
+
 
        •	The cat's name, adopter's name, and adopted date for each cat adopted within the past month to be displayed as part of the "Happy Tail" social media promotion which posts recent successful adoptions.
 
-	     SELECT cats.name, adopters.first_name, adopters.last_name,  cat_adoption.date
-       FROM cat_adoptions
-       JOIN cats ON cat_adoptions.cat_id = cat.id
-       JOIN adopters ON cat_adoptions.adopter_id = adopters.id;
+       SELECT cats.name, adopters.first_name, adopters.last_name,  cat_adoptions.date
+        FROM cat_adoptions
+        JOIN cats ON cat_adoptions.cat_id = cats.id
+        JOIN adopters ON adopters.id = cat_adoptions.adopter_id;
 
        •	Create a list of adopters who have not yet chosen a dog to adopt.
 
        SELECT adopters.first_name, adopters.last_name
-	     FROM adopters
-       JOIN dog_adoptions ON adopters.id = dog_adoptions.adopter_id
-       WHERE adopters.adopters.id != dog_adoptions.adopter_id;
+       FROM adopters
+       LEFT JOIN dog_adoptions ON adopters.id = dog_adoptions.adopter_id
+       WHERE dog_adoptions.adopter_id IS NULL;
+
 
        •	Lists of all cats and all dogs who have not been adopted.
 
-       SELECT cats. *, dogs. *
+       SELECT cats. *
        FROM cats
-       LEFT JOIN cat_adoptions ON cat.id = cat_adoption.cat_id
+       LEFT JOIN cat_adoptions ON cats.id = cat_adoptions.cat_id
+       WHERE cat_adoptions.cat_id IS NULL;
+
+       SELECT dogs. *
        FROM dogs
        LEFT JOIN dog_adoptions ON dogs.id = dog_adoptions.dog_id
-       WHERE dogs_adoptions.dog_id = null && cat_adoption.cat_id = null;
+       WHERE dog_adoptions.dog_id IS NULL;
 
        •	The name of the person who adopted Rosco.
 
-       SELECT adopters.first_name, adopters.last_name,
+       SELECT adopters.first_name, adopters.last_name
        FROM adopters
-       JOIN adopters ON adopters.id = dog_adoptions.adopter_id
-       JOIN dogs ON dogs.id = dogs_adopitions.dog_id.
-       WHERE dogs.name = “Rosco;
+       JOIN dog_adoptions ON adopters.id = dog_adoptions.adopter_id
+
        Using this Library schema and data, write queries applying the following scenarios and include the results:
 
        •	To determine if the library should buy more copies of a given book, please provide the names and position, in order, of all of the patrons with a hold (request for a book with all copies checked out) on "Advanced Potion-Making".
 
        SELECT patrons.name, holds.rank
        FROM patrons
-       JOIN holds ON holds.patron_id = patrons.id
-       FROM holds
-       JOIN  books ON books.isbn = holds.isbn
-	     WHERE books.title = “Advanced Potion Making”;
-       IN ORDER patrons.name, holds.rank;
+       JOIN holds ON patrons.id =  holds.patron_id
+       JOIN books ON holds.isbn = books.isbn
+       WHERE books.title = 'Advanced Potion-Making'
+       ORDER BY holds DESC;
 
-       1.	SELECT patrons.name, books.title
 
-	      FROM patrons
-        LEFT JOIN transactions ON transactions.patron_id = patrons.id
-        FROM transactions
-        JOIN books ON books.isbn  = transactions.isbn
-        WHERE transactions > 1;
+List all of the library patrons. If they have one or more books checked out, list the books with the patrons.
+
+
+      SELECT patrons.name, books.title
+      FROM patrons
+      LEFT JOIN transactions ON transactions.patron_id =    patrons.id
+      LEFT JOIN books ON books.isbn  = transactions.isbn;
