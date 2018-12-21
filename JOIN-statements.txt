@@ -108,7 +108,8 @@ Exercises
 List all of the library patrons. If they have one or more books checked out, list the books with the patrons.
 
 
-      SELECT patrons.name, books.title
-      FROM patrons
-      LEFT JOIN transactions ON transactions.patron_id =    patrons.id
-      LEFT JOIN books ON books.isbn  = transactions.isbn;
+        SELECT patrons.name, books.title
+        FROM patrons
+        LEFT JOIN transactions ON transactions.patron_id =    patrons.id
+        LEFT JOIN books ON books.isbn  = transactions.isbn
+        WHERE transactions.checked_in_date IS NULL;
