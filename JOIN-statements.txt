@@ -102,7 +102,7 @@ Exercises
        JOIN holds ON patrons.id =  holds.patron_id
        JOIN books ON holds.isbn = books.isbn
        WHERE books.title = 'Advanced Potion-Making'
-       ORDER BY holds DESC;
+       ORDER BY holds DESC 
 
 
 List all of the library patrons. If they have one or more books checked out, list the books with the patrons.
